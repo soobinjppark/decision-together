@@ -9,6 +9,7 @@ import AttIntro from '@/components/AttIntro.vue'
 import AltIntro from '@/components/AltIntro.vue'
 import Complete from '@/components/Complete.vue'
 import UserInfo from '@/components/UserInfo.vue'
+import Result from '@/components/Result.vue'
 
 Vue.use(Router)
 
@@ -58,6 +59,11 @@ export default new Router({
       path: '/part3',
       name: 'part3',
       component: Part3
+    },
+    {
+      path: '/result',
+      name: 'result',
+      component: Result
     }
   ]
 })
