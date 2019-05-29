@@ -50,8 +50,15 @@
               <v-flex xs10>   
               
               <v-btn v-if="!first" @click="decrem">Previous</v-btn>   
-              <v-btn v-if="!last" @click="increm(); passData();">Next</v-btn>
-              <v-btn v-if="last" @click="increm(); passData(); finish();">Submit</v-btn>
+              <v-btn v-if="!last && part1" @click="increm(); passData(); storeArray(1);">Next</v-btn>
+              <v-btn v-if="!last && part2" @click="increm(); passData();">Next</v-btn>
+              <v-btn v-if="!last && part3" @click="increm(); passData(); storeArray(3);">Next</v-btn>
+
+
+              <v-btn v-if="last && part1" @click="increm(); passData(); storeArray(1); finish();">Submit</v-btn>
+              <v-btn v-if="last && part2" @click="increm(); passData(); finish();">Submit</v-btn>
+              <v-btn v-if="last && part3" @click="increm(); passData(); storeArray(3); finish();">Submit</v-btn>
+
               </v-flex>
             </v-layout>
       </v-container>
@@ -65,10 +72,11 @@
 
 export default {
   name: 'Form',
-  props: ['criteria1', 'criteria2', 'objective', 'first', 'last', 'last1', 'last2', 'last3'],
+  props: ['criteria1', 'criteria2', 'objective', 'first', 'last', 'last1', 'last2', 'last3', 'arrayIndex', 'part1', 'part2', 'part3', 'section', 'saveMatrix'],
   data() {
     return {
       rangeValues: [9, null, 7, null, 5, null, 3, null, 1, null, 3, null, 5, null, 7, null, 9],
+      actualScale: [1/9, 1/8, 1/7, 1/6, 1/5, 1/4, 1/3, 1/2, 1, 2, 3, 4, 5, 6, 7, 8, 9],
       scale: 8,
       comment: '',
       criteria: {
@@ -86,7 +94,6 @@ export default {
   methods: {
     increm() {
       this.$emit('update', 1)
-
     },
     decrem() {
       this.$emit('update', -1)
@@ -95,7 +102,48 @@ export default {
       this.$emit('done')
     },
     passData() {
-      this.$emit('save', this.scale, this.comment)
+      this.$emit('save', this.actualScale[this.scale], this.comment)
+      if (this.saveMatrix) {
+        this.$emit('saveComplete')
+      }
+    },
+    storeArray(part) {
+      var index1 = this.arrayIndex[0]
+      var index2 = this.arrayIndex[1]
+      if (part == 1) {
+        this.$storedata.part1array[index1][index2] = this.actualScale[this.scale]
+        this.$storedata.part1array[index2][index1] = 1/this.actualScale[this.scale]
+      } else if (part == 3) {
+        if (this.section == 'a') {
+          this.$storedata.part3arrayA[index1][index2] = this.actualScale[this.scale]
+          this.$storedata.part3arrayA[index2][index1] = 1/this.actualScale[this.scale]
+          this.$emit('matrixSection', this.$storedata.part3arrayA, this.$storedata.part3eigenA, this.$storedata.part3lambdaA, this.$storedata.part3ciA, this.$storedata.partcrA)
+        }
+        else if (this.section == 'b') {
+          this.$storedata.part3arrayB[index1][index2] = this.actualScale[this.scale]
+          this.$storedata.part3arrayB[index2][index1] = 1/this.actualScale[this.scale]
+          this.$emit('matrixSection', this.$storedata.part3arrayB, this.$storedata.part3eigenB, this.$storedata.part3lambdaB, this.$storedata.part3ciB, this.$storedata.partcrB)
+        } 
+        else if (this.section == 'c') {
+          this.$storedata.part3arrayC[index1][index2] = this.actualScale[this.scale]
+          this.$storedata.part3arrayC[index2][index1] = 1/this.actualScale[this.scale]
+          this.$emit('matrixSection', this.$storedata.part3arrayC, this.$storedata.part3eigenC, this.$storedata.part3lambdaC, this.$storedata.part3ciC, this.$storedata.partcrC)
+        } 
+        else if (this.section == 'd') {
+          this.$storedata.part3arrayD[index1][index2] = this.actualScale[this.scale]
+          this.$storedata.part3arrayD[index2][index1] = 1/this.actualScale[this.scale]
+          this.$emit('matrixSection', this.$storedata.part3arrayD, this.$storedata.part3eigenD, this.$storedata.part3lambdaD, this.$storedata.part3ciD, this.$storedata.partcrD)
+        } 
+        else if (this.section == 'e') {
+          this.$storedata.part3arrayE[index1][index2] = this.actualScale[this.scale]
+          this.$storedata.part3arrayE[index2][index1] = 1/this.actualScale[this.scale]
+          this.$emit('matrixSection', this.$storedata.part3arrayE, this.$storedata.part3eigenE, this.$storedata.part3lambdaE, this.$storedata.part3ciE, this.$storedata.partcrE)
+        } 
+        else {
+          // eslint-disable-next-line
+          console.log("Something's wrong")
+        }
+      }
     },
     values(val) {
       if (Math.abs(this.rangeValues[val]) == 9) {

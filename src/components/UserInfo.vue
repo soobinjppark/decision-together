@@ -17,7 +17,7 @@
                 <v-card>
                 <v-layout justify-center> 
                     <v-flex xs5 sm7>
-                        <v-text-field v-model="email" :rules="emailRules" label="E-mail" required>
+                        <v-text-field v-model="email" label="E-mail" required>
                         </v-text-field>
                     </v-flex>
                 </v-layout>

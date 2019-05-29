@@ -56,79 +56,79 @@
 
                 <v-stepper-items>
                     <v-stepper-content step="1">
-                        <Form :criteria1="environmental[0]" :criteria2="environmental[1]" :objective="objective1" @update="updateStep" @save="saveData" :first="true"/>
+                        <Form :criteria1="environmental[0]" :criteria2="environmental[1]" :objective="objective1" @update="updateStep" @save="saveData" :first="true" :part2="true"/>
                     </v-stepper-content>
                     <v-stepper-content step="2">
-                        <Form :criteria1="environmental[0]" :criteria2="environmental[2]" :objective="objective1" @save="saveData" @update="updateStep"/> 
+                        <Form :criteria1="environmental[0]" :criteria2="environmental[2]" :objective="objective1" @save="saveData" @update="updateStep" :part2="true" /> 
                     </v-stepper-content>
                     <v-stepper-content step="3">
-                        <Form :criteria1="environmental[1]" :criteria2="environmental[2]" :objective="objective1" @save="saveData" @update="updateStep"/> 
+                        <Form :criteria1="environmental[1]" :criteria2="environmental[2]" :objective="objective1" @save="saveData" @update="updateStep" :part2="true"/> 
                     </v-stepper-content>1
                     <v-stepper-content step="4">
-                        <Form :criteria1="economics[0]" :criteria2="economics[1]" :objective="objective2" @save="saveData" @update="updateStep" /> 
+                        <Form :criteria1="economics[0]" :criteria2="economics[1]" :objective="objective2" @save="saveData" @update="updateStep" :part2="true"/> 
                     </v-stepper-content>
                     <v-stepper-content step="5">
-                        <Form :criteria1="economics[0]" :criteria2="economics[2]" :objective="objective2" @save="saveData" @update="updateStep" /> 
+                        <Form :criteria1="economics[0]" :criteria2="economics[2]" :objective="objective2" @save="saveData" @update="updateStep" :part2="true"/> 
                     </v-stepper-content>
                     <v-stepper-content step="6">
-                        <Form :criteria1="economics[0]" :criteria2="economics[3]" :objective="objective2" @save="saveData" @update="updateStep" /> 
+                        <Form :criteria1="economics[0]" :criteria2="economics[3]" :objective="objective2" @save="saveData" @update="updateStep" :part2="true"/> 
                     </v-stepper-content>
                     <v-stepper-content step="7">
-                        <Form :criteria1="economics[1]" :criteria2="economics[2]" :objective="objective2" @save="saveData" @update="updateStep" /> 
+                        <Form :criteria1="economics[1]" :criteria2="economics[2]" :objective="objective2" @save="saveData" @update="updateStep" :part2="true"/> 
                     </v-stepper-content>
                     <v-stepper-content step="8">
-                        <Form :criteria1="economics[1]" :criteria2="economics[3]" :objective="objective2" @save="saveData" @update="updateStep" /> 
+                        <Form :criteria1="economics[1]" :criteria2="economics[3]" :objective="objective2" @save="saveData" @update="updateStep" :part2="true"/> 
                     </v-stepper-content>
                     <v-stepper-content step="9">
-                        <Form :criteria1="economics[2]" :criteria2="economics[3]" :objective="objective2" @save="saveData" @update="updateStep" /> 
+                        <Form :criteria1="economics[2]" :criteria2="economics[3]" :objective="objective2" @save="saveData" @update="updateStep" :part2="true"/> 
                     </v-stepper-content>
                     <v-stepper-content step="10">
-                        <Form :criteria1="socialAcceptance[0]" :criteria2="socialAcceptance[1]" :objective="objective3" @save="saveData" @update="updateStep" /> 
+                        <Form :criteria1="socialAcceptance[0]" :criteria2="socialAcceptance[1]" :objective="objective3" @save="saveData" @update="updateStep" :part2="true" /> 
                     </v-stepper-content>
                     <v-stepper-content step="11">
-                        <Form :criteria1="socialAcceptance[0]" :criteria2="socialAcceptance[2]" :objective="objective3" @save="saveData" @update="updateStep" /> 
+                        <Form :criteria1="socialAcceptance[0]" :criteria2="socialAcceptance[2]" :objective="objective3" @save="saveData" @update="updateStep" :part2="true"/> 
                     </v-stepper-content>
                     <v-stepper-content step="12">
-                        <Form :criteria1="socialAcceptance[1]" :criteria2="socialAcceptance[2]" :objective="objective3" @save="saveData" @update="updateStep" /> 
+                        <Form :criteria1="socialAcceptance[1]" :criteria2="socialAcceptance[2]" :objective="objective3" @save="saveData" @update="updateStep" :part2="true"/> 
                     </v-stepper-content>
                     <v-stepper-content step="13">
-                        <Form :criteria1="techFeasibility[0]" :criteria2="techFeasibility[1]" :objective="objective4" @save="saveData" @update="updateStep" /> 
+                        <Form :criteria1="techFeasibility[0]" :criteria2="techFeasibility[1]" :objective="objective4" @save="saveData" @update="updateStep" :part2="true"/> 
                     </v-stepper-content>
                     <v-stepper-content step="14">
-                        <Form :criteria1="techFeasibility[0]" :criteria2="techFeasibility[2]" :objective="objective4" @save="saveData" @update="updateStep" /> 
+                        <Form :criteria1="techFeasibility[0]" :criteria2="techFeasibility[2]" :objective="objective4" @save="saveData" @update="updateStep" :part2="true"/> 
                     </v-stepper-content>
                     <v-stepper-content step="15">
-                        <Form :criteria1="techFeasibility[0]" :criteria2="techFeasibility[3]" :objective="objective4" @save="saveData" @update="updateStep"/> 
+                        <Form :criteria1="techFeasibility[0]" :criteria2="techFeasibility[3]" :objective="objective4" @save="saveData" @update="updateStep" :part2="true"/> 
                     </v-stepper-content>
                     <v-stepper-content step="16">
-                        <Form :criteria1="techFeasibility[0]" :criteria2="techFeasibility[4]" :objective="objective4" @save="saveData" @update="updateStep"/> 
+                        <Form :criteria1="techFeasibility[0]" :criteria2="techFeasibility[4]" :objective="objective4" @save="saveData" @update="updateStep" :part2="true"/> 
                     </v-stepper-content>
                     <v-stepper-content step="17">
-                        <Form :criteria1="techFeasibility[1]" :criteria2="techFeasibility[2]" :objective="objective4" @save="saveData" @update="updateStep"/> 
+                        <Form :criteria1="techFeasibility[1]" :criteria2="techFeasibility[2]" :objective="objective4" @save="saveData" @update="updateStep" :part2="true"/> 
                     </v-stepper-content>
                     <v-stepper-content step="18">
-                        <Form :criteria1="techFeasibility[1]" :criteria2="techFeasibility[3]" :objective="objective4" @save="saveData" @update="updateStep"/> 
+                        <Form :criteria1="techFeasibility[1]" :criteria2="techFeasibility[3]" :objective="objective4" @save="saveData" @update="updateStep" :part2="true"/> 
                     </v-stepper-content>
                     <v-stepper-content step="19">
-                        <Form :criteria1="techFeasibility[1]" :criteria2="techFeasibility[4]" :objective="objective4" @save="saveData" @update="updateStep"/> 
+                        <Form :criteria1="techFeasibility[1]" :criteria2="techFeasibility[4]" :objective="objective4" @save="saveData" @update="updateStep" :part2="true"/> 
                     </v-stepper-content>
                     <v-stepper-content step="20">
-                        <Form :criteria1="techFeasibility[2]" :criteria2="techFeasibility[3]" :objective="objective4" @save="saveData" @update="updateStep"/> 
+                        <Form :criteria1="techFeasibility[2]" :criteria2="techFeasibility[3]" :objective="objective4" @save="saveData" @update="updateStep" :part2="true"/> 
                     </v-stepper-content>
                     <v-stepper-content step="21">
-                        <Form :criteria1="techFeasibility[2]" :criteria2="techFeasibility[4]" :objective="objective4" @save="saveData" @update="updateStep"/> 
+                        <Form :criteria1="techFeasibility[2]" :criteria2="techFeasibility[4]" :objective="objective4" @save="saveData" @update="updateStep" :part2="true"/> 
                     </v-stepper-content>
                     <v-stepper-content step="22">
-                        <Form :criteria1="techFeasibility[3]" :criteria2="techFeasibility[4]" :objective="objective4" @save="saveData" @update="updateStep"/> 
+                        <Form :criteria1="techFeasibility[3]" :criteria2="techFeasibility[4]" :objective="objective4" @save="saveData" @update="updateStep" :part2="true"/> 
                     </v-stepper-content>
                     <v-stepper-content step="23">
-                        <Form :criteria1="regAcceptance[0]" :criteria2="regAcceptance[1]" :objective="objective5" @save="saveData" @update="updateStep"/> 
+                        <Form :criteria1="regAcceptance[0]" :criteria2="regAcceptance[1]" :objective="objective5" @save="saveData" @update="updateStep" :part2="true"/> 
                     </v-stepper-content>
                     <v-stepper-content step="24">
-                        <Form :criteria1="regAcceptance[0]" :criteria2="regAcceptance[2]" :objective="objective5" @save="saveData" @update="updateStep"/> 
+                        <Form :criteria1="regAcceptance[0]" :criteria2="regAcceptance[2]" :objective="objective5" @save="saveData" @update="updateStep" :part2="true"/> 
                     </v-stepper-content>
                     <v-stepper-content step="25">
-                        <Form :criteria1="regAcceptance[1]" :criteria2="regAcceptance[2]" :objective="objective5" @update="updateStep" @save="saveData" last="true"/> 
+                        <Form :criteria1="regAcceptance[1]" :criteria2="regAcceptance[2]" :objective="objective5" @update="updateStep" @save="saveData" last="true" :part2="true"/> 
                     </v-stepper-content>
                 </v-stepper-items>
             </v-stepper>

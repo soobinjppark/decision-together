@@ -47,11 +47,6 @@
                         <blockquote>{{ paragraph4 }}  </blockquote>
                     </v-flex>
                 </v-layout>
-                <v-layout justify-center align-center id="quote">
-                    <v-flex class="subheading font-weight-light">
-                        <blockquote>{{ paragraph5 }}  </blockquote>
-                    </v-flex>
-                </v-layout>
                 <v-layout justify-center align-center id="button">
                     <v-flex>
                         <v-btn router-link to="part3">Start</v-btn>
