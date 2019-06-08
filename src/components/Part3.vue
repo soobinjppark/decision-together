@@ -129,6 +129,7 @@ export default {
           this.currentCR = cr
     },
       calcSum() {
+        // Creates vector of sums
         var eigenVector = new Array(this.arraySize)
         for (var i = 0; i < this.currentSection.length; i++) {
             var sum = 0
@@ -138,17 +139,12 @@ export default {
             eigenVector[i] = sum
         }
         this.eigen = eigenVector
-        // eslint-disable-next-line
-        console.log(this.eigen)
-
     },
       priorityVector() {
           // Creates deep copy of part1array
           var temp = new Array(this.arraySize)
           var pVector = new Array(this.arraySize)
 
-              // eslint-disable-next-line 
-                //console.log(this.currentSection)
           for (var a = 0; a < temp.length; a++) {
               temp[a] = new Array(this.arraySize);
               for (var b = 0; b < temp[a].length; b++) {
@@ -221,7 +217,6 @@ export default {
               this.$storedata.part3lambdaA = this.currentLambda  
               this.$storedata.part3ciA = this.currentCI
               this.$storedata.part3crA = this.currentCR
-
           }
           if (payload == 2) {
               this.$storedata.part3eigenB = this.currentEigen
@@ -270,6 +265,26 @@ export default {
                 part1cr: this.$storedata.part1cr,
                 part2a: this.$storedata.part2a,
                 part2b: this.$storedata.part2b,
+                part2eigenA: this.$storedata.part2eigenA,
+                part2eigenB: this.$storedata.part2eigenB,
+                part2eigenC: this.$storedata.part2eigenC,
+                part2eigenD: this.$storedata.part2eigenD,
+                part2eigenE: this.$storedata.part2eigenE,
+                part2lambdaA: this.$storedata.part2lambdaA,
+                part2lambdaB: this.$storedata.part2lambdaB,
+                part2lambdaC: this.$storedata.part2lambdaC,
+                part2lambdaD: this.$storedata.part2lambdaD,
+                part2lambdaE: this.$storedata.part2lambdaE,
+                part2ciA: this.$storedata.part2ciA,
+                part2ciB: this.$storedata.part2ciB,
+                part2ciC: this.$storedata.part2ciC,
+                part2ciD: this.$storedata.part2ciD,
+                part2ciE: this.$storedata.part2ciE,
+                part2crA: this.$storedata.part2crA,
+                part2crB: this.$storedata.part2crB,
+                part2crC: this.$storedata.part2crC,
+                part2crD: this.$storedata.part2crD,
+                part2crE: this.$storedata.part2crE,
                 part3a: this.$storedata.part3a,
                 part3b: this.$storedata.part3b, 
                 part3eigenA: this.$storedata.part3eigenA,

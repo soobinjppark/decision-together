@@ -51,12 +51,12 @@
               
               <v-btn v-if="!first" @click="decrem">Previous</v-btn>   
               <v-btn v-if="!last && part1" @click="increm(); passData(); storeArray(1);">Next</v-btn>
-              <v-btn v-if="!last && part2" @click="increm(); passData();">Next</v-btn>
+              <v-btn v-if="!last && part2" @click="increm(); passData(); storeArray(2);">Next</v-btn>
               <v-btn v-if="!last && part3" @click="increm(); passData(); storeArray(3);">Next</v-btn>
 
 
               <v-btn v-if="last && part1" @click="increm(); passData(); storeArray(1); finish();">Submit</v-btn>
-              <v-btn v-if="last && part2" @click="increm(); passData(); finish();">Submit</v-btn>
+              <v-btn v-if="last && part2" @click="increm(); passData(); storeArray(2); finish();">Submit</v-btn>
               <v-btn v-if="last && part3" @click="increm(); passData(); storeArray(3); finish();">Submit</v-btn>
 
               </v-flex>
@@ -113,31 +113,55 @@ export default {
       if (part == 1) {
         this.$storedata.part1array[index1][index2] = this.actualScale[this.scale]
         this.$storedata.part1array[index2][index1] = 1/this.actualScale[this.scale]
-      } else if (part == 3) {
+      } 
+      else if (part == 2) {
+        if (this.section == 'a') {
+          this.$storedata.part2arrayA[index1][index2] = this.actualScale[this.scale]
+          this.$storedata.part2arrayA[index2][index1] = 1/this.actualScale[this.scale]
+          this.$emit('matrixSection', this.$storedata.part2arrayA, 3, this.$storedata.part2eigenA, this.$storedata.part2lambdaA, this.$storedata.part2ciA, this.$storedata.part2crA)
+        } else if (this.section == 'b') {
+          this.$storedata.part2arrayB[index1][index2] = this.actualScale[this.scale]
+          this.$storedata.part2arrayB[index2][index1] = 1/this.actualScale[this.scale]
+          this.$emit('matrixSection', this.$storedata.part2arrayB, 4, this.$storedata.part2eigenB, this.$storedata.part2lambdaB, this.$storedata.part2ciB, this.$storedata.part2crB)
+        } else if (this.section == 'c') {
+          this.$storedata.part2arrayC[index1][index2] = this.actualScale[this.scale]
+          this.$storedata.part2arrayC[index2][index1] = 1/this.actualScale[this.scale]
+          this.$emit('matrixSection', this.$storedata.part2arrayC, 3, this.$storedata.part2eigenC, this.$storedata.part2lambdaC, this.$storedata.part2ciC, this.$storedata.part2crC)
+        } else if (this.section == 'd') {
+          this.$storedata.part2arrayD[index1][index2] = this.actualScale[this.scale]
+          this.$storedata.part2arrayD[index2][index1] = 1/this.actualScale[this.scale]
+          this.$emit('matrixSection', this.$storedata.part2arrayD, 5, this.$storedata.part2eigenD, this.$storedata.part2lambdaD, this.$storedata.part2ciD, this.$storedata.part2crD)
+        } else if (this.section == 'e') {
+          this.$storedata.part2arrayE[index1][index2] = this.actualScale[this.scale]
+          this.$storedata.part2arrayE[index2][index1] = 1/this.actualScale[this.scale]
+          this.$emit('matrixSection', this.$storedata.part2arrayE, 3, this.$storedata.part2eigenE, this.$storedata.part2lambdaE, this.$storedata.part2ciE, this.$storedata.part2crE)
+        }
+      }
+      else if (part == 3) {
         if (this.section == 'a') {
           this.$storedata.part3arrayA[index1][index2] = this.actualScale[this.scale]
           this.$storedata.part3arrayA[index2][index1] = 1/this.actualScale[this.scale]
-          this.$emit('matrixSection', this.$storedata.part3arrayA, this.$storedata.part3eigenA, this.$storedata.part3lambdaA, this.$storedata.part3ciA, this.$storedata.partcrA)
+          this.$emit('matrixSection', this.$storedata.part3arrayA, this.$storedata.part3eigenA, this.$storedata.part3lambdaA, this.$storedata.part3ciA, this.$storedata.part3crA)
         }
         else if (this.section == 'b') {
           this.$storedata.part3arrayB[index1][index2] = this.actualScale[this.scale]
           this.$storedata.part3arrayB[index2][index1] = 1/this.actualScale[this.scale]
-          this.$emit('matrixSection', this.$storedata.part3arrayB, this.$storedata.part3eigenB, this.$storedata.part3lambdaB, this.$storedata.part3ciB, this.$storedata.partcrB)
+          this.$emit('matrixSection', this.$storedata.part3arrayB, this.$storedata.part3eigenB, this.$storedata.part3lambdaB, this.$storedata.part3ciB, this.$storedata.part3crB)
         } 
         else if (this.section == 'c') {
           this.$storedata.part3arrayC[index1][index2] = this.actualScale[this.scale]
           this.$storedata.part3arrayC[index2][index1] = 1/this.actualScale[this.scale]
-          this.$emit('matrixSection', this.$storedata.part3arrayC, this.$storedata.part3eigenC, this.$storedata.part3lambdaC, this.$storedata.part3ciC, this.$storedata.partcrC)
+          this.$emit('matrixSection', this.$storedata.part3arrayC, this.$storedata.part3eigenC, this.$storedata.part3lambdaC, this.$storedata.part3ciC, this.$storedata.part3crC)
         } 
         else if (this.section == 'd') {
           this.$storedata.part3arrayD[index1][index2] = this.actualScale[this.scale]
           this.$storedata.part3arrayD[index2][index1] = 1/this.actualScale[this.scale]
-          this.$emit('matrixSection', this.$storedata.part3arrayD, this.$storedata.part3eigenD, this.$storedata.part3lambdaD, this.$storedata.part3ciD, this.$storedata.partcrD)
+          this.$emit('matrixSection', this.$storedata.part3arrayD, this.$storedata.part3eigenD, this.$storedata.part3lambdaD, this.$storedata.part3ciD, this.$storedata.part3crD)
         } 
         else if (this.section == 'e') {
           this.$storedata.part3arrayE[index1][index2] = this.actualScale[this.scale]
           this.$storedata.part3arrayE[index2][index1] = 1/this.actualScale[this.scale]
-          this.$emit('matrixSection', this.$storedata.part3arrayE, this.$storedata.part3eigenE, this.$storedata.part3lambdaE, this.$storedata.part3ciE, this.$storedata.partcrE)
+          this.$emit('matrixSection', this.$storedata.part3arrayE, this.$storedata.part3eigenE, this.$storedata.part3lambdaE, this.$storedata.part3ciE, this.$storedata.part3crE)
         } 
         else {
           // eslint-disable-next-line
