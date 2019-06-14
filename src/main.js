@@ -5,10 +5,12 @@ import router from './router'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import JsonCSV from 'vue-json-csv'
+import VueApexCharts from 'vue-apexcharts'
 
 Vue.component('downloadCsv', JsonCSV)
-Vue.use(Vuetify)
-Vue.prototype.$storedata = { email: '', sector: '', other: '', part1a: [], part1b: [], part1array: [], part1eigen: [], part1lambda: 0, part1ci: 0, part1cr: 0,
+Vue.component('apexchart', VueApexCharts)
+Vue.use(Vuetify, VueApexCharts)
+Vue.prototype.$storedata = { email: '', sector: '', other: '', part1a: [], part1b: [], part1array: [], part1eigen: [], part1eigenScale: [], part1lambda: 0, part1ci: 0, part1cr: 0,
  part2a: [], part2b: [], part2arrayA: [], part2arrayB: [], part2arrayC: [], part2arrayD: [], part2arrayE: [],
  part2eigenA: [], part2eigenB: [], part2eigenC: [], part2eigenD: [], part2eigenE: [],
 part2lambdaA: 0, part2lambdaB: 0, part2lambdaC: 0, part2lambdaD: 0, part2lambdaE: 0,

@@ -196,6 +196,7 @@ export default {
             this.$storedata.part3b = this.commentData
             // eslint-disable-next-line 
             console.log(this.$storedata)
+            this.scaleEigen()
             this.$router.push({ name: 'complete' })
         }
         else {
@@ -260,6 +261,7 @@ export default {
                 part1a: this.$storedata.part1a,
                 part1b: this.$storedata.part1b,
                 part1eigen: this.$storedata.part1eigen,
+                part1eigenScale: this.$storedata.part1eigenScale,
                 part1lambda: this.$storedata.part1lambda,
                 part1ci: this.$storedata.part1ci,
                 part1cr: this.$storedata.part1cr,
@@ -308,6 +310,11 @@ export default {
                 part3crD: this.$storedata.part3crD,
                 part3crE: this.$storedata.part3crE,
             })
+      },
+      scaleEigen() {
+          this.$storedata.part1eigenScale =  this.$storedata.part1eigen.map(function(x) {return x * 100})
+          //this.$storedata.parteigenScale =  this.$storedata.part1eigenScale.map(function(x) {return x * 100})
+          //this.$storedata.part1eigenScale =  this.$storedata.part1eigenScale.map(function(x) {return x * 100})
       }
   },
     created() {

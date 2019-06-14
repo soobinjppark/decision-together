@@ -9,13 +9,53 @@
                     </v-flex>
                 </v-layout>
             </v-container>
+            <v-container>
+                <v-layout row wrap align-center justify-center>
+                    <v-flex xs12 md7>
+                        <v-card color='white' class="rounded-card">
+                            <v-card-title class="title card-title">Part 1 Results</v-card-title>
+                            <apexchart width="600" type="pie" :options="chartOptions" :series="this.$storedata.part1eigenScale"></apexchart>
+
+                        </v-card>
+                    </v-flex>
+                </v-layout>
+            </v-container>
+
         </v-app>
     </div>
 </template>
 
 <script>
 export default {
-    
+    name: 'complete',
+    data() {
+        return {
+            chartOptions: {
+                labels: ['Environmental', 'Economics', 'Social Acceptance', 'Technical Feasibility', 'Regulatory Acceptance'],
+                responsive: [{
+                    breakpoint: 480,
+                    options: {
+                        chart: {
+                            width: 200
+                        },
+                        legend: {
+                            position: 'bottom',
+                        }
+                    }
+                }],
+                dataLabels: {
+                    style: {
+                    colors: ['#fff']
+                }
+            }
+        },
+            series: this.$storedata.part1eigenScale
+        }
+    },
+    beforeCreate() {
+        // eslint-disable-next-line
+        console.log(this.$storedata.part1eigenScale)
+    }
 }
 </script>
 
@@ -23,6 +63,12 @@ export default {
 h1 {
     margin-top: 40px;
     margin-bottom: 20px;
+}
+.rounded-card{
+    border-radius:20px;
+}
+.card-title {
+    color: black
 }
 </style>
 
