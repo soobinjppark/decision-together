@@ -27,10 +27,16 @@ export default {
         }
     },
     created() {
-        db.collection('entries').get()
+    db.collection('entries').get()
         .then(snapshot => {
             snapshot.forEach(doc => {
-                this.results.push(doc.data())
+                var dataset = doc.data()
+                //eslint-disable-next-line
+                console.log(typeof dataset)
+                dataset.part1matrix = ["hello"]
+                //eslint-disable-next-line
+                console.log(doc.data())
+                this.results.push(dataset)
             })
         })
     }
