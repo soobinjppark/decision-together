@@ -197,7 +197,9 @@ export default {
             // eslint-disable-next-line 
             console.log(this.$storedata)
             this.scaleEigen()
-            this.$router.push({ name: 'part-3-complete' })
+            this.$nextTick(() => {
+                this.$router.push({ name: 'part-3-complete' })
+            })
         }
         else {
             // eslint-disable-next-line 
@@ -209,21 +211,27 @@ export default {
     },
         sectionComplete(payload) {
             this.$nextTick(() => {
-            this.calcSum()
-            this.priorityVector()
-            this.calcLambda()
-            this.calcConsistency()
+                this.calcSum()
+                this.priorityVector()
+                this.calcLambda()
+                this.calcConsistency()
 
-            this.$storedata.part3eigen[payload] = this.currentEigen;
-            this.$storedata.part3eigenScale.push(this.currentEigen.map(function(x) {return x * 100}));
-            this.$storedata.part3lambda.push(this.currentEigen);
-            this.$storedata.part3ci.push(this.currentEigen);
-            this.$storedata.part3cr.push(this.currentEigen);
-            if (payload == 5) {
-              //this.saveDatabase()
-              // eslint-disable-next-line
-              console.log(this.$storedata)
-            }
+                this.$storedata.part3eigen[payload] = this.currentEigen;
+                this.$storedata.part3lambda.push(this.currentEigen);
+                this.$storedata.part3ci.push(this.currentEigen);
+                this.$storedata.part3cr.push(this.currentEigen);
+                if (payload == 5) {
+                    let calc = [0, 0, 0]
+                    for (let i = 0; i < 5; ++i) {
+                        calc[0] += this.$storedata.part3eigen[i+1][0] * this.$storedata.part1eigen[i];
+                        calc[1] += this.$storedata.part3eigen[i+1][1] * this.$storedata.part1eigen[i];
+                        calc[2] += this.$storedata.part3eigen[i+1][2] * this.$storedata.part1eigen[i];
+                    }
+                    this.$storedata.part3Calculations = calc;
+                //this.saveDatabase()
+                // eslint-disable-next-line
+                console.log(this.$storedata)
+                }
           })
       },           
       saveDatabase() {
@@ -240,32 +248,16 @@ export default {
                 part1cr: this.$storedata.part1cr,
                 part2a: this.$storedata.part2a,
                 part2b: this.$storedata.part2b,
-                part2eigenA: this.$storedata.part2eigenA,
-                part2eigenB: this.$storedata.part2eigenB,
-                part2eigenC: this.$storedata.part2eigenC,
-                part2eigenD: this.$storedata.part2eigenD,
-                part2eigenE: this.$storedata.part2eigenE,
-                part2lambdaA: this.$storedata.part2lambdaA,
-                part2lambdaB: this.$storedata.part2lambdaB,
-                part2lambdaC: this.$storedata.part2lambdaC,
-                part2lambdaD: this.$storedata.part2lambdaD,
-                part2lambdaE: this.$storedata.part2lambdaE,
-                part2ciA: this.$storedata.part2ciA,
-                part2ciB: this.$storedata.part2ciB,
-                part2ciC: this.$storedata.part2ciC,
-                part2ciD: this.$storedata.part2ciD,
-                part2ciE: this.$storedata.part2ciE,
-                part2crA: this.$storedata.part2crA,
-                part2crB: this.$storedata.part2crB,
-                part2crC: this.$storedata.part2crC,
-                part2crD: this.$storedata.part2crD,
-                part2crE: this.$storedata.part2crE,
+                part2eigen: this.$storedata.part2eigen,
+                part2lambda: this.$storedata.part2lambda,
+                part2ci: this.$storedata.part2ci,
+                part2cr: this.$storedata.part2cr,
                 part3a: this.$storedata.part3a,
                 part3b: this.$storedata.part3b, 
-                part3eigenA: this.$storedata.part3eigenA,
-                part3lambdaA: this.$storedata.part3lambdaA,
-                part3ciA: this.$storedata.part3ciA,
-                part3crA: this.$storedata.part3crA,
+                part3eigen: this.$storedata.part3eigen,
+                part3lambda: this.$storedata.part3lambda,
+                part3ci: this.$storedata.part3ci,
+                part3cr: this.$storedata.part3cr,
             })
       },
       scaleEigen() {
@@ -280,7 +272,7 @@ export default {
       var newArray3 = new Array(this.arraySize)
       var newArray4 = new Array(this.arraySize)
       var newArray5 = new Array(this.arraySize)
-      for (var i = 0; i < newArray1.length; i++) {
+      for (let i = 0; i < newArray1.length; i++) {
           newArray1[i] = new Array(this.arraySize)
           newArray2[i] = new Array(this.arraySize)
           newArray3[i] = new Array(this.arraySize)

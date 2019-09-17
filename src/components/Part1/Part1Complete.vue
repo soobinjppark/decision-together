@@ -26,7 +26,7 @@
 
 <script>
 export default {
-    name: 'complete',
+    name: 'part1complete',
     data() {
         return {
             chartOptions: {
