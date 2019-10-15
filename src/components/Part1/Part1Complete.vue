@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <v-app id="inspire" dark>
+        <v-app id="inspire">
             <v-container text-xs-center>
                 <v-layout justify-center>
                     <v-flex>

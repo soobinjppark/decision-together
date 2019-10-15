@@ -3,7 +3,7 @@
     <v-content>
       <Navbar/>
       <router-view/>
-      <v-footer dark>
+      <v-footer class="teal lighten-3">
         <v-layout>
           <v-flex xs12 text-xs-center>© Vanderbilt University, 2019 All Rights Reserved</v-flex>
         </v-layout>

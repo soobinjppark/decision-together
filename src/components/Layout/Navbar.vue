@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <v-app id="inspire">
-            <v-toolbar fixed>
+            <v-toolbar fixed class="teal lighten-3">
                 <v-toolbar-title class="headline">
                     <div @click="clickMethod" class="font-weight-light">Decision Together</div>
                 </v-toolbar-title>

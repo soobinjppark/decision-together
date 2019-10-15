@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <v-app id="inspire">
-            <v-stepper dark v-model="step" id="stepper">
+            <v-stepper v-model="step" id="stepper">
                 <v-stepper-header>
                     <v-stepper-step :complete="step > 1" step="1"></v-stepper-step>
                     <v-divider></v-divider>
@@ -228,7 +228,7 @@ export default {
                         calc[2] += this.$storedata.part3eigen[i+1][2] * this.$storedata.part1eigen[i];
                     }
                     this.$storedata.part3Calculations = calc;
-                //this.saveDatabase()
+                this.saveDatabase()
                 // eslint-disable-next-line
                 console.log(this.$storedata)
                 }
@@ -300,6 +300,6 @@ div {
 }
 
 #stepper {
-    margin-top: 65px;
+    margin-top: 50px;
 }
 </style>

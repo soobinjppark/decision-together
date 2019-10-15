@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <v-app id="inspire" dark>
+        <v-app id="inspire">
                 <v-container text-xs-center id="contain" fluid>
                     <v-layout justify-center align-center>
                         <v-flex class="display-2 font-weight-light">
@@ -14,7 +14,7 @@
                     </v-layout>
                     <v-layout justify-center align-center>
                         <v-flex xs3 class="subheading font-weight-light" id="flex">
-                            <v-card height="200" elevation="24" id="flex">
+                            <v-card height="200" elevation="15" id="flex">
                             <div id="five">The five criteria include:</div>
                             <ul>
                                 <li>Environmental</li>

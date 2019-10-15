@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <v-app id="inspire">
-            <v-stepper dark v-model="step" id="stepper">
+            <v-stepper v-model="step" id="stepper">
                 <v-stepper-header>
                     <v-stepper-step :complete="step > 1" step="1"></v-stepper-step>
                     <v-divider></v-divider>
@@ -330,6 +330,6 @@ div {
 }
 
 #stepper {
-    margin-top: 65px;
+    margin-top: 50px;
 }
 </style>

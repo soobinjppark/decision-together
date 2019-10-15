@@ -1,6 +1,6 @@
 <template>
   <div class="index">
-    <v-app id="inspire" dark>
+    <v-app id="inspire">
       <v-container fluid>
         <v-layout text-xs-center row wrap>
           <v-flex xs10 offset-xs1>

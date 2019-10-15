@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <v-app id="inspire" dark>
+        <v-app id="inspire">
             <v-container text-xs-center class="first">
                 <v-layout justify-center>
                     <v-flex>
@@ -13,6 +13,7 @@
                 <v-layout row wrap align-center justify-center>
                     <v-flex xs12 md7>
                         <v-card color='white' class="rounded-card">
+                            <v-card-title class="title card-title">Based on the Environmental Criterion</v-card-title>
                             <apexchart width="600" type="pie" :options="chartOptions" :series="this.$storedata.part3Calculations"></apexchart>
                         </v-card>
 
